@@ -1,0 +1,11 @@
+.form-container{
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid rgb(224, 204, 204);
+}
+.form-row{
+width: 100%;
+display: flex;
+padding: 5px;
+
+}

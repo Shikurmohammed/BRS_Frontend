@@ -1,0 +1,78 @@
+<div class="form-container">
+  <form (submit)="onSubmit(bookForm)" #bookForm="ngForm">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="inputIsbn">ISBN</label>
+        <input type="text" class="form-control" id="inputIsbn" placeholder="ISBN" name="ISBN" ngModel>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="inputAuthor">Author</label>
+        <input type="text" class="form-control" id="inputAuthor" placeholder="Author" name="Author" ngModel>
+      </div>
+    </div>  
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="inputTitle">Title</label>
+        <input type="text" class="form-control" id="inputTitle" placeholder="Title" name="Title" ngModel>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="inputEdition">Edition</label>
+        <input type="text" class="form-control" id="inputEdition" placeholder="Edition" name="Edition" ngModel>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="inputType">Type</label>
+        <input type="text" class="form-control" id="inputType" placeholder="Type" name="Type" >
+        <!-- [(ngModel)]="bookObject!.type" -->
+      </div>
+      <div class="form-group col-md-3">
+        <label for="inputNCopies">No of Copies</label>
+        <input type="text" class="form-control" id="inputNCopies" placeholder="Number of copies" name="NumberOfCopies" ngModel>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="inputRegistrationDate">Registration Date</label>
+        <input type="text" class="form-control" id="inputRegistrationDate" placeholder="Registration Date" name="RegistrationDate" ngModel>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="inputPublicationDate">Publication Date</label>
+        <input type="text" class="form-control" id="inputPublicationDate" placeholder="Publication Date" name="PublicationDate" ngModel>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" >Create</button>
+  </form>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">ISBN</th>
+      <th scope="col">Author</th>
+      <th scope="col">Title</th>
+      <th scope="col">Type</th>
+      <!-- <th scope="col">Genre</th> -->
+      <th scope="col">Total copies</th>
+      <th scope="col">Edition</th>
+      <th scope="col">Registration Date</th>
+      <th scope="col">Publication Date</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of bookList; let i = index">
+      <th scope="row">{{ i }}</th>
+      <td>{{ book.iSBN }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.type }}</td>
+      <!-- <td>{{ book.genre }}</td> -->
+      <td>{{ book.numberOfCopies }}</td>
+      <td>{{ book.edition }}</td>
+      <td>{{ book.registrationDate }}</td>
+      <td>{{ book.publicationDate }}</td>
+      <td><a class="link">Edit</a> <a class="link">Delete</a></td>
+    </tr>
+  </tbody>
+</table>
