@@ -21,7 +21,8 @@
 import { inject } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
-import { AuthService } from "../auth/auth.service";
+import { AuthService } from "../services/auth/auth.service";
+import { BookService } from "../services/book.service";
 
 export interface IDeactivateComponent{
   canExit: ()=>boolean | Observable<boolean>|Promise<boolean>;
@@ -43,3 +44,6 @@ export const CanActivate=()=>{
 // export function canDeactivate(comp:Component){
 //  return comp.canExit();
 // }
+export const resolve=()=>{
+return inject(BookService).fetchBooks();
+}

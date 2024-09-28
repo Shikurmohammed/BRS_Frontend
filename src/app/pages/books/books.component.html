@@ -1,49 +1,49 @@
 <div class="form-container">
-  <form (submit)="onSubmit(bookForm)" #bookForm="ngForm">
+  <form (submit)="onSubmit(bookFormRef)" #bookFormRef="ngForm">
     <div class="form-row">
       <div class="form-group col-md-3">
         <label for="inputIsbn">ISBN</label>
-        <input type="text" class="form-control" id="inputIsbn" placeholder="ISBN" name="ISBN" ngModel>
+        <input type="text" class="form-control" id="inputIsbn" placeholder="ISBN" name="iSBN" [(ngModel)]="bookObject.iSBN">
       </div>
       <div class="form-group col-md-3">
         <label for="inputAuthor">Author</label>
-        <input type="text" class="form-control" id="inputAuthor" placeholder="Author" name="Author" ngModel>
+        <input type="text" class="form-control" id="inputAuthor" placeholder="Author" name="author" [(ngModel)]="bookObject.author">
       </div>
     </div>  
     <div class="form-row">
       <div class="form-group col-md-3">
         <label for="inputTitle">Title</label>
-        <input type="text" class="form-control" id="inputTitle" placeholder="Title" name="Title" ngModel>
+        <input type="text" class="form-control" id="inputTitle" placeholder="Title" name="title" [(ngModel)]="bookObject.title">
       </div>
       <div class="form-group col-md-3">
         <label for="inputEdition">Edition</label>
-        <input type="text" class="form-control" id="inputEdition" placeholder="Edition" name="Edition" ngModel>
+        <input type="text" class="form-control" id="inputEdition" placeholder="Edition" name="edition" [(ngModel)]="bookObject.edition">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-3">
         <label for="inputType">Type</label>
-        <input type="text" class="form-control" id="inputType" placeholder="Type" name="Type" >
-        <!-- [(ngModel)]="bookObject!.type" -->
+        <input type="text" class="form-control" id="inputType" placeholder="Type" name="type" [(ngModel)]="bookObject.type">
       </div>
       <div class="form-group col-md-3">
         <label for="inputNCopies">No of Copies</label>
-        <input type="text" class="form-control" id="inputNCopies" placeholder="Number of copies" name="NumberOfCopies" ngModel>
+        <input type="text" class="form-control" id="inputNCopies" placeholder="Number of copies" name="numberOfCopies" [(ngModel)]="bookObject.numberOfCopies">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-3">
         <label for="inputRegistrationDate">Registration Date</label>
-        <input type="text" class="form-control" id="inputRegistrationDate" placeholder="Registration Date" name="RegistrationDate" ngModel>
+        <input type="date" class="form-control" id="inputRegistrationDate" placeholder="Registration Date" name="registrationDate" [(ngModel)]="bookObject.registrationDate">
       </div>
       <div class="form-group col-md-3">
         <label for="inputPublicationDate">Publication Date</label>
-        <input type="text" class="form-control" id="inputPublicationDate" placeholder="Publication Date" name="PublicationDate" ngModel>
+        <input type="date" class="form-control" id="inputPublicationDate" placeholder="Publication Date" name="publicationDate" [(ngModel)]="bookObject.publicationDate">
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" >Create</button>
+    <button type="submit" class="btn btn-primary" (click)="createOrUpdateBook()" >{{isEditMode?'Create':'Update'}}</button>
   </form>
 </div>
+<input type="text" [(ngModel)]="searchKey">
 <table class="table table-hover">
   <thead>
     <tr>
@@ -72,7 +72,7 @@
       <td>{{ book.edition }}</td>
       <td>{{ book.registrationDate }}</td>
       <td>{{ book.publicationDate }}</td>
-      <td><a class="link">Edit</a> <a class="link">Delete</a></td>
+      <td><a class="link" >Edit</a> <a class="link" (click)="deleteBook(book.id)">Delete</a></td>
     </tr>
   </tbody>
 </table>

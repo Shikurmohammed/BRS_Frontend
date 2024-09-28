@@ -1,0 +1,36 @@
+:host{
+    font-family: "Times New Roman", sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    text-align: center;
+}
+h1 {
+    font-size: 30px;
+    margin: 0;
+    color: #ff6b6b;
+}
+p {
+    font-size: 20px;
+    margin: 20px 0;
+}
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007BFF;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+a:hover {
+    background-color: #0056b3;
+}

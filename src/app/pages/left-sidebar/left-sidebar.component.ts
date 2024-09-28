@@ -24,6 +24,11 @@ export class LeftSidebarComponent {
       label: 'Books',
     },
     {
+      routeLink:'rent',
+      icon:'fal fa-box-open',
+      label:'Rent'
+    },
+    {
       routeLink: 'pages',
       icon: 'fal fa-file',
       label: 'Pages',

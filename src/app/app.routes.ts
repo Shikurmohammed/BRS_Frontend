@@ -1,25 +1,28 @@
 import { Routes } from '@angular/router';
-import { BooksComponent } from './books/books.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { CanActivate } from './guards/auth-guard.guard';
-import { AuthLayoutComponent } from './pages/auth-layout/auth-layout.component';
+import { CanActivate, resolve } from './guards/auth.guard';
+import { BooksComponent } from './pages/books/books.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
 import { LoginComponent } from './pages/login/login.component';
-import { PagesComponent } from './pages/pages.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { RentComponent } from './pages/rent/rent.component';
 import { SignupComponent } from './pages/signup/signup.component';
 
 export const routes: Routes = [
- { path: 'login', component: AuthLayoutComponent, children:[
-  { path: '', component: LoginComponent },
- ] },
+  { path: 'login', component:LoginComponent},
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+ {
+  path: 'dashboard',
+  component: DashboardComponent,canActivate:[CanActivate]},
   {
     path: 'dashboard',
     component: DashboardComponent,canActivateChild:[CanActivate],
     children: [
-      { path: 'books', component: BooksComponent , canDeactivate:[(comp:BooksComponent)=>{return comp.canExit()}] },//, canActivate:[CanActivate]
-      { path: 'pages', component: PagesComponent },
+      { path: 'books', component: BooksComponent ,resolve:{books:resolve}, canDeactivate:[(comp:BooksComponent)=>{return comp.canExit()}] },//, canActivate:[CanActivate]
+      { path: 'rent', component: RentComponent },
     ],
   },
-  { path: 'signup', component: SignupComponent},
+  { path: 'signup', component: SignupComponent,data:{name:'test name', password:'test pass'}},
  
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {path:'**', component:PageNotFoundComponent}
 ];

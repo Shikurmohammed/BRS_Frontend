@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SignUp } from '../../models/signup';
 @Component({
   selector: 'app-signup',
@@ -23,5 +23,11 @@ export class SignupComponent {
   this.http.post(`${this.URL}/saveClient`,this.form.value).subscribe((response)=>{
     console.log(response)
   })
+  }
+  activeRouter:ActivatedRoute= inject(ActivatedRoute);
+  ngOnInit(){
+this.activeRouter.data.subscribe((res)=>{
+console.log(res)
+})
   }
 }
