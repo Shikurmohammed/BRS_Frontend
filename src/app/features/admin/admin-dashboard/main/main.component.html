@@ -1,0 +1,16 @@
+<div class="body" [ngClass]="sizeClass()">
+
+ <mat-toolbar> <div class="nav">
+  <div class="profile">
+    <a (click)="toggleDayNight()"><i [class]="dayLight?'fas fa-sun':'fas fa-moon'"></i></a>
+  </div>
+  <div class="profile">
+    <a ><i class="fas fa-bell"></i></a>
+     </div>
+  <div> <a><img src="" alt="pic"></a></div>
+ </div></mat-toolbar>
+ <br>
+ <br>
+ <br>
+  <router-outlet />
+</div>

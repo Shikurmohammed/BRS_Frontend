@@ -1,0 +1,12 @@
+/*Footer styles*/
+footer {
+    padding:15px 0;
+    background-color:#27445C;
+    bottom: 0;
+    position: absolute;
+    height: 50px;
+    width: 100vw;
+    text-align: center;
+    align-items: center;
+}
+/*End Footer style*/

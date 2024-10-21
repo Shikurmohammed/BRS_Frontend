@@ -1,50 +1,106 @@
-<div class="form-container">
-  <form (submit)="onSubmit(bookFormRef)" #bookFormRef="ngForm">
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <label for="inputIsbn">ISBN</label>
-        <input type="text" class="form-control" id="inputIsbn" placeholder="ISBN" name="iSBN" [(ngModel)]="bookObject.iSBN">
-      </div>
-      <div class="form-group col-md-3">
-        <label for="inputAuthor">Author</label>
-        <input type="text" class="form-control" id="inputAuthor" placeholder="Author" name="author" [(ngModel)]="bookObject.author">
-      </div>
-    </div>  
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <label for="inputTitle">Title</label>
-        <input type="text" class="form-control" id="inputTitle" placeholder="Title" name="title" [(ngModel)]="bookObject.title">
-      </div>
-      <div class="form-group col-md-3">
-        <label for="inputEdition">Edition</label>
-        <input type="text" class="form-control" id="inputEdition" placeholder="Edition" name="edition" [(ngModel)]="bookObject.edition">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <label for="inputType">Type</label>
-        <input type="text" class="form-control" id="inputType" placeholder="Type" name="type" [(ngModel)]="bookObject.type">
-      </div>
-      <div class="form-group col-md-3">
-        <label for="inputNCopies">No of Copies</label>
-        <input type="text" class="form-control" id="inputNCopies" placeholder="Number of copies" name="numberOfCopies" [(ngModel)]="bookObject.numberOfCopies">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <label for="inputRegistrationDate">Registration Date</label>
-        <input type="date" class="form-control" id="inputRegistrationDate" placeholder="Registration Date" name="registrationDate" [(ngModel)]="bookObject.registrationDate">
-      </div>
-      <div class="form-group col-md-3">
-        <label for="inputPublicationDate">Publication Date</label>
-        <input type="date" class="form-control" id="inputPublicationDate" placeholder="Publication Date" name="publicationDate" [(ngModel)]="bookObject.publicationDate">
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary" (click)="createOrUpdateBook()" >{{isEditMode?'Create':'Update'}}</button>
+
+
+<section>
+  
+  <button type="button"  class="btn btn-primary" (click)="openModal()">
+    New
+   </button>
+   <div class="modal fade"  #createOrUpdateBookModal  aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+          <h6 class="modal-title" id="exampleModalLabel">{{isEditMode?' Edit book data!':'Register new book!'}}</h6>
+         </div>
+         <div class="modal-body">
+          <form #bookFormRef="ngForm" (ngSubmit)="onSubmit(bookFormRef)" >
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputIsbn">ISBN</label>
+                <!-- <input type="hidden" class="form-control" id="inputIsbn"  name="id" [(ngModel)]="bookObject.id"> -->
+                <input type="text" class="form-control" id="inputIsbn" name="iSBN" [(ngModel)]="bookObject.iSBN">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputAuthor">Author</label>
+                <input type="text" class="form-control" id="inputAuthor"  name="author" [(ngModel)]="bookObject.author">
+              </div>
+            </div>  
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputTitle">Title</label>
+                <input type="hidden" class="form-control" id="inputTitle" name="genre" [(ngModel)]="bookObject.genre">
+
+                <input type="text" class="form-control" id="inputTitle"  name="title" [(ngModel)]="bookObject.title">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputEdition">Edition</label>
+                <input type="text" class="form-control" id="inputEdition"  name="edition" [(ngModel)]="bookObject.edition">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputType">Type</label>
+                <input type="text" class="form-control" id="inputType"  name="type" [(ngModel)]="bookObject.type">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputNCopies">No of Copies</label>
+                <input type="text" class="form-control" id="inputNCopies"  name="numberOfCopies" [(ngModel)]="bookObject.numberOfCopies">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputPublicationDate">Publication Date</label>
+                <!-- <input type="date" class="form-control" id="inputPublicationDate"  name="publicationDate" [(ngModel)]="bookObject.publicationDate"> -->
+                <mat-form-field>
+                  <mat-label>Choose a date</mat-label>
+                  <input matInput [matDatepicker]="picker">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                
+          
+                  <mat-label>Select Time</mat-label>
+                  <input
+                    matInput
+                    [ngxTimepicker]="timepicker"
+                    [(ngModel)]="selectedTime" name="publicationTime"
+                    placeholder="Select Time"
+                  />
+                  <ngx-material-timepicker-toggle
+                    matSuffix
+                    [for]="timepicker"
+                  ></ngx-material-timepicker-toggle>
+                  <ngx-material-timepicker #timepicker></ngx-material-timepicker>
+                <!-- </mat-form-field> -->
+                
+                <p>Selected Date and Time: {{ selectedDate | date }} {{ selectedTime }}</p>
+              </div>
+            </div>
+
+
+            <div class="form-row">
+             <div class="form-group col-md-6">
+               <label for="image">Image</label>
+               <!-- <input type="file" class="form-control" id="image"  name="image" [(ngModel)]="bookObject.image"> -->
+               <input type="file" id="image" (change)="onFileSelected($event)"accept="image/*" >
+               <!-- accept="image/*" -->
+              </div>
+           </div>
+          </form>
+          
+         </div>
+         <div class="modal-footer">
+           <button type="submit" class="btn btn-primary" (click)="createOrUpdateBook()" >{{isEditMode?'Update':'Create'}}</button>
+           <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Close</button>
+         </div>
+       </div>
+     </div>
+   </div>
+  <form class="searchForm">
+    <input type="text" placeholder="Search here..."  [(ngModel)]="searchKey" name="searchKey" />
   </form>
-</div>
-<input type="text" [(ngModel)]="searchKey">
-<table class="table table-hover">
+  <p style="width: 100%;" class="bg-danger" *ngIf="noContent">{{noContent}}</p>
+  <table class="table table-responsive">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -55,14 +111,17 @@
       <!-- <th scope="col">Genre</th> -->
       <th scope="col">Total copies</th>
       <th scope="col">Edition</th>
-      <th scope="col">Registration Date</th>
-      <th scope="col">Publication Date</th>
-      <th scope="col">Actions</th>
+      <!-- <th scope="col">Registration Date</th> 
+      <th scope="col">Publication Date</th> -->
+       <th scope="col">Status</th>
+      <th scope="col" >Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let book of bookList; let i = index">
-      <th scope="row">{{ i }}</th>
+
+      
+    <tr *ngFor="let book of filteredResults; let i = index"  >
+      <th scope="row">{{ book.id }}</th>
       <td>{{ book.iSBN }}</td>
       <td>{{ book.author }}</td>
       <td>{{ book.title }}</td>
@@ -70,9 +129,23 @@
       <!-- <td>{{ book.genre }}</td> -->
       <td>{{ book.numberOfCopies }}</td>
       <td>{{ book.edition }}</td>
-      <td>{{ book.registrationDate }}</td>
-      <td>{{ book.publicationDate }}</td>
-      <td><a class="link" >Edit</a> <a class="link" (click)="deleteBook(book.id)">Delete</a></td>
+      <!-- <td>{{ book.registrationDate }}</td> 
+     <td>{{ book.publicationDate }}</td>  -->
+     <td>{{book.status}}</td> 
+      <td >
+        <a  class="link" (click)="editBook(book.id??0)" title="Edit">
+          <i class="fas fa-edit"></i></a>
+         <a class="link" (click)="deleteBook(book.id??0)" title="Delete">
+          <i class="fas fa-trash text-danger"></i></a>
+         <a class="link" (click)="0" title="Request for rent">
+          <i class="fas fa-paper-plane text-success"></i></a>
+        </td>
     </tr>
+
   </tbody>
 </table>
+</section>
+
+
+
+

@@ -1,0 +1,19 @@
+<header>
+    <img src="assets/bookPic1.gif" alt="Logo" class="logo"> 
+   <nav>
+       <div class="input-container">
+           <input type="search" class="search-input" value="" name="s" placeholder="Search entire website..." />
+       <button type="submit" class="search-submit" name="submit"><i class="fa fa-search">search</i></button>
+     </div>
+       <a  [routerLink]="'/login'">Login</a>
+       <a [routerLink]="'/signup'">Create Account</a>
+       <div class="dropDown">
+        <a class="dropBtn">More</a>
+        <div class="dropDown-content">
+            <a href="">Rent</a>
+            <a href="">Return</a>
+            <a href="">Buy</a>
+        </div>
+       </div>
+   </nav>
+</header>

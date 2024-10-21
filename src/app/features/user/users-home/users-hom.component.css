@@ -1,0 +1,37 @@
+*{
+    margin: 10px;
+    padding: 10px;
+}
+mat-sidenav-container{
+    height: 100vh;
+}
+mat-sidenav,mat-sidenav-content{
+padding: 16px;
+}
+mat-sidenav{
+    background-color: pink;
+    width: 200px;
+    height: 100%
+}
+mat-menu{
+    margin: 10px;
+    background-color: red;
+    padding: 10px;
+}
+mat-grid-list {
+    background-color: aqua;
+}
+mat-form-field{
+    width: fit-content
+}
+mat-datepicker{
+  
+}
+/*.mat-datepicker-content-container*/
+
+mat-datepicker-content 
+{
+    background-color: red;
+    width: 10%;
+    height: 10%;
+}

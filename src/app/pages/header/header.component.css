@@ -1,0 +1,62 @@
+/*Header styles*/
+
+header{
+    padding: 15px 5px;
+    margin-bottom: 10px;
+    background-color: #27445C;
+    max-height: 10vh;
+    text-align: center;
+    overflow: hidden;
+  
+}
+header nav{
+   float: right;
+}
+
+header nav a{
+   padding: 10px;
+   text-decoration: none;
+   font-size: 12px;
+   color: white;
+}
+header .logo{
+   float: left;
+  padding: 0;
+  width: 5vw;
+   height: 10vh;
+   margin: 0;
+}
+header nav a:hover {
+   color: #AB47BC;
+   
+ }
+/*End header style*/
+/*Start DropDown style*/
+
+.dropDown{
+   position: relative;
+   display: inline-block;
+  
+}
+.dropBtn{
+   padding: 1rem;
+   font-size: 16px;
+}
+.dropDown-content{
+  display: none;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0px 8px 16px 0 #4783bc;
+}
+.dropDown-content a{
+   padding :12px 16px;
+   display: block;
+   color: #AB47BC;
+}
+.dropDown:hover .dropDown-content{
+   display: block;
+}
+.dropDown-content a:hover{
+ /* background-color: #4783bc; */
+}
+/*End DropDown style*/

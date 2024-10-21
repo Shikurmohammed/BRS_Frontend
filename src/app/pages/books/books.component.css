@@ -1,7 +1,6 @@
-.form-container{
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: 1px solid rgb(224, 204, 204);
+section{
+  width: 100%;
+  overflow: hidden;
 }
 .form-row{
 width: 100%;
@@ -9,3 +8,71 @@ display: flex;
 padding: 5px;
 
 }
+
+
+.searchForm input[type='text'] {
+    border: solid 1px var(--primary-color);
+    padding: 10px;
+    border-radius: 8px;
+    margin-right: 4px;
+    display: inline-block;
+    width: 30%;
+  }
+  
+  button {
+    padding: 10px;
+    border: solid 1px var(--primary-color);
+    background: #01419e;
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    width:fit-content;
+  }
+  table{
+    width: 100%;
+    border-collapse:collapse;
+    border: 1px solid #01419e;
+    
+  }
+  td,th{
+    text-overflow: ellipsis;
+    /* white-space: nowrap; */
+    word-wrap: normal;   
+    text-align: center;
+    align-items: center;
+
+  }
+  @media (min-width: 500px) and (max-width: 768px) {
+    input[type='text'] {
+      width: 70%;
+    }
+  }
+  .example-form-field {
+    margin: 0 8px 16px 0;
+  }
+  td .link{
+    /* margin:5px;
+    padding: 3px;
+    width: 5px; */
+  }
+  @media only screen and (max-width:400px){
+    .modal-content{
+      margin-left:50%;
+      width: 30%;
+    }
+  }
+  @media only screen and (max-width:600px){
+    .modal-content{
+      width:80%;
+      margin:10% auto;
+      background-color: aliceblue;
+      position: relative;
+    }
+  }
+  @media only screen and (min-width:600px){}
+  @media only screen and (min-width:768px){}
+  @media only screen and (min-width:992px){}
+  @media only screen and (min-width:1200px){}
+
+ .cutom-toolbar{
+background-color: #01419e;
+ }

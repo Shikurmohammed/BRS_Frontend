@@ -1,0 +1,95 @@
+<mat-form-field>
+  <mat-label>Choose Date</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-datepicker-toggle matIconSuffix [for]="picker" ></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+
+</mat-form-field>
+
+<!-- 
+ <mat-sidenav-container>
+    <mat-sidenav #sidenav 
+    (opened)="log('opened')" (closed)="log('closed')"
+    [(opened)]="opened"
+     mode="side" >SideBar</mat-sidenav>
+    <mat-sidenav-content>
+   <button (click)="opened=!opened">ToggleSideBar</button>
+        <button (click)="sidenav.open()">Open</button>
+        <button (click)="sidenav.close()">Close</button> 
+        <button (click)="sidenav.toggle()">Toggle</button>
+        Main</mat-sidenav-content>
+  </mat-sidenav-container>  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <!-- <mat-menu #menu xPosition="after" yPosition="above" class="MainMenu"  >
+   <button mat-menu-item [matMenuTriggerFor]="subMenu">FrontEnd</button>
+   <button mat-menu-item>BackEnd</button>
+  </mat-menu>
+  <button mat-flat-button [matMenuTriggerFor]="menu">Menu</button>
+
+  <mat-menu #subMenu="matMenu">
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>React</button>
+    <button mat-menu-item>Vue</button>
+  </mat-menu>
+  <mat-menu #lazyMenu="matMenu">
+    <ng-template matMenuContent="" let-name="name">
+        <button>logout{{name}}</button>
+    </ng-template>
+  </mat-menu>
+  <button [matMenuTriggerData]="{name:'testmenu'}" [mat-menu-trigger-for]="lazyMenu">logout</button> -->
+
+  <!-- <mat-grid-list cols="2"  rowHeight="fit" style="height:200px" gutterSize="10px">
+    <mat-grid-tile ></mat-grid-tile>
+    <mat-grid-tile >Tile2</mat-grid-tile>
+  </mat-grid-list>
+<mat-accordion multi="true" hideToggle="true">
+  <mat-expansion-panel>
+     <mat-expansion-panel-header>
+      <mat-panel-title> Personal data </mat-panel-title>
+      <mat-panel-description>
+        Type your name and age
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+     <mat-panel-title> Personal data </mat-panel-title>
+     <mat-panel-description>
+       Type your name and age
+       <mat-icon>account_circle</mat-icon>
+     </mat-panel-description>
+   </mat-expansion-panel-header>
+ </mat-expansion-panel>
+ 
+</mat-accordion>
+<mat-tab-group #tabs (selectedTabChange)="logTabs(tabs.selectedIndex)" style="width: 20vw;">
+  <mat-tab label="Angular">Angular Content</mat-tab>
+  <mat-tab label="React">React Content</mat-tab>
+  <mat-tab label="Vue">Vue Content</mat-tab>
+</mat-tab-group> -->
