@@ -5192,6 +5192,7 @@ var _MatInternalFormField = __MatInternalFormField;
 export {
   coerceBooleanProperty,
   coerceNumberProperty,
+  _isNumberValue,
   coerceArray,
   coerceCssPixelValue,
   coerceElement,
@@ -5223,6 +5224,7 @@ export {
   ObserversModule,
   addAriaReferencedId,
   removeAriaReferencedId,
+  AriaDescriber,
   ActiveDescendantKeyManager,
   FocusKeyManager,
   InteractivityChecker,
@@ -5282,4 +5284,4 @@ export {
   MatRippleLoader,
   _MatInternalFormField
 };
-//# sourceMappingURL=chunk-KBVUWB7O.js.map
+//# sourceMappingURL=chunk-LCWV7IIL.js.map

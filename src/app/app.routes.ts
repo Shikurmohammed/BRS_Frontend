@@ -13,23 +13,23 @@ import { RentComponent } from './pages/rent/rent.component';
 import { UsersComponent } from './pages/users/users.component';
 
 export const routes: Routes = [
-  {path:'',component:HomeComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path:'home',component:HomeComponent},
   { path: 'login', component:LoginComponent},
-  // { path: '', redirectTo: 'home', pathMatch: 'full' },
+  
  {
   path: 'admin-dashboard',
-  component: AdminDashboardComponent,canActivate:[CanActivate],
+  component: AdminDashboardComponent,
     children: [
       { path: 'books', component: BooksComponent , canDeactivate:[(comp:BooksComponent)=>{return comp.canExit()}] },
       { path: 'rents', component: RentComponent },//, resolve:{rents:resolve},resolve:{books:resolve},
       { path: 'users', component:UsersComponent}
-    ],
+    ],canActivate:[()=>CanActivate("ADMIN")],
   },
-  { path: 'librarian-dashboard', component: librarianDashboardComponent,},
-  { path: 'users-home', component: UsersHomComponent,},
+  { path: 'librarian-dashboard', component: librarianDashboardComponent, canActivate:[()=>CanActivate("ADMIN,LIBRARIAN")]},
+  { path: 'users-home', component: UsersHomComponent,canActivate:[()=>CanActivate("USER,ADMIN,LIBRARIAN")]},
 
-  { path: 'signup', component: SignupComponent,data:{name:'test name', password:'test pass'}},
+  { path: 'signup', component: SignupComponent},//data:{name:'test name', password:'test pass'}
   { path: 'pages', component: PageNotFoundComponent,},
   {path:'**', component:PageNotFoundComponent}
 ];

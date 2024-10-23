@@ -30,15 +30,22 @@
   cursor: pointer;
   border: none;
 }
-.sidenav .logo-container .logo-img {
+.sidenav .logo-container .logo-text {
   margin-left: 1.5rem;
   font-size: 24px;
-  font-weight: 700;
   color: #fff;
-  width: 3vw;
+  min-width: 3vw;
   height: 3vw;
-  border-radius: 50%;
+
+  
 }
+.sidenav .logo-container .logo-text:hover {
+  transform: rotate3d(1, 1, 1, 360deg);
+  cursor: pointer;
+  font-size: 32px;
+  margin-left: 2rem;
+}
+
 .sidenav .logo-container .btn-close {
   margin-left: auto;
   cursor: pointer;

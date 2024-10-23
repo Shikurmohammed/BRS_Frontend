@@ -32,6 +32,7 @@ main .row{
 [class*="col-"]:hover{
    padding: 31px 46px; 
 transition: ease 2s;
+font-size: 24px;
 }
 @media (max-width:600px){
     header nav a{

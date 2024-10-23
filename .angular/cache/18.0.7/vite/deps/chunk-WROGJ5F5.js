@@ -3,7 +3,7 @@ import {
   MatFormField,
   MatFormFieldControl,
   MatFormFieldModule
-} from "./chunk-AUOKZHFZ.js";
+} from "./chunk-ENARIIVG.js";
 import {
   FormGroupDirective,
   NgControl,
@@ -20,7 +20,7 @@ import {
   coerceNumberProperty,
   getSupportedInputTypes,
   normalizePassiveListenerOptions
-} from "./chunk-KBVUWB7O.js";
+} from "./chunk-LCWV7IIL.js";
 import {
   DOCUMENT
 } from "./chunk-HYFH3H3S.js";
@@ -950,4 +950,4 @@ export {
   MatInput,
   MatInputModule
 };
-//# sourceMappingURL=chunk-52R3IBNE.js.map
+//# sourceMappingURL=chunk-WROGJ5F5.js.map

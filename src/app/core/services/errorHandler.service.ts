@@ -6,15 +6,11 @@ import { throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class ErrorHandlerService {
-  
-  // constructor() { }
   handleError(error: HttpErrorResponse) {
-   // console.log("Error handler :", error.status)
     return throwError(()=>this.getErrorMessage(error));
   }
   getErrorMessage(error: HttpErrorResponse): string {
     let errMessage: string = "";
-   // console.log("Error handler :", error.status)
     if (error.error instanceof ErrorEvent) {
      errMessage="A client-side error occurred. Please try again later!";
        

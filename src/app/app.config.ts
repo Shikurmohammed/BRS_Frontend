@@ -13,7 +13,6 @@ import { routes } from './app.routes';
 import { AuthInterceptor } from './core/interceptors/authInterceptor';
 export const appConfig: ApplicationConfig = {
   providers: [
-   // provideHttpClient(withInterceptorsFromDi()),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
@@ -31,7 +30,6 @@ export const appConfig: ApplicationConfig = {
       closeButton:true,
       autoDismiss:true,
       progressBar:true,
-    })
-   // BookService
+    }), provideAnimationsAsync()
   ],
 };

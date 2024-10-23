@@ -107,7 +107,7 @@ formData.append('image', this.selectedFile);
   }
 
   editBook(id: number | undefined) {
-    this.toast.info("Edited","Done!")
+    this.toast.info("Edited")
     this.isEditMode = true;
     this.openModal();
 
@@ -236,6 +236,15 @@ formData.append('image', this.selectedFile);
     this.modalInstance.hide();
   }
 
+//FormGroup Controll
 
+readonly range = new FormGroup({
+  start: new FormControl<Date | null>(null),
+  end: new FormControl< Date | null>(null),
+});
+weekDayFilter=(d:Date|null):boolean=>{
+  const day=(d || new Date()).getDay();
+  return (day!==0 && day!==4);
+}
   
 }

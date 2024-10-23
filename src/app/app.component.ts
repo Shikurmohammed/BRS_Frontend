@@ -1,12 +1,13 @@
 import { Component, inject, Output } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterOutlet } from '@angular/router';
+import { Material } from './core/material';
 import { HomeComponent } from './pages/home/home.component';
 import { LoaderComponent } from './pages/loader/loader.component';
 import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoaderComponent, PageNotFoundComponent,HomeComponent],
+  imports: [Material, RouterOutlet, LoaderComponent, PageNotFoundComponent,HomeComponent,Material],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
