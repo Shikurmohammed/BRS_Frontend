@@ -1,0 +1,7 @@
+.link{
+    padding: 5px;
+}
+.link:hover{
+ cursor: pointer;
+ background-color: aquamarine;
+}

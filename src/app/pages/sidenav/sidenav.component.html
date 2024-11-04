@@ -1,0 +1,19 @@
+<div class="sidenav-header">
+    <img src="/assets/user3.jpg" alt="" [width]="profilePicSize()" [height]="profilePicSize()">
+    <div class="header-text">
+        <h5>Welcome</h5>
+        <p>User name</p>
+    </div>
+</div>
+@for (item of items(); track $index) {
+    <mat-nav-list>
+         <a mat-list-item
+           [routerLink]="item.routeLink"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+         >
+        <i class="sidenav-link-icon" [class]="item.icon"></i>
+         @if (!isSidenavClosed()) {
+           <span class="sidenav-link-text">{{ item.label }}</span>
+         }  </a> 
+    </mat-nav-list>  }

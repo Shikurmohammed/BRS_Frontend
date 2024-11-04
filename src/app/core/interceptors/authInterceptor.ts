@@ -15,16 +15,14 @@ import { LogService } from '../services/log.service';
   providedIn: 'root',
 })
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(
-    private authService: AuthService,private logService:LogService
-    
-  ) {}
+  constructor(private authService: AuthService,private logService:LogService) {}
+  private allowedPaths: string[] = ['/api/getBooks']; // Define allowed paths
+
   errorHandlerService:ErrorHandlerService=inject(ErrorHandlerService)
   intercept(req: HttpRequest<any>,next: HttpHandler,): Observable<HttpEvent<any>>
    {
-   //console.log('Auth Interceptor called...');
+    const isAllowed = this.allowedPaths.some(path => req.url.includes(path));
     const token = this.authService.getToken();
-   
     if (token) {
       const cloned = req.clone({
         setHeaders: {Authorization: `Bearer ${token}`},
@@ -32,12 +30,12 @@ export class AuthInterceptor implements HttpInterceptor {
       return next.handle(cloned)
       .pipe(
         catchError((error: HttpErrorResponse) => {
-         // let errorObj={message:error.message,level:'Warning', time:new Date()};
-          //this.logService.logError(errorObj)
           return this.errorHandlerService.handleError(error);
         }),
       );
-    } else {
+    } 
+    else if(isAllowed){ return next.handle(req);}
+    else {
       return next.handle(req);
     }
   }

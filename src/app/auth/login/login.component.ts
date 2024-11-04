@@ -20,6 +20,7 @@ export class LoginComponent {
   isLoggedIn: boolean = true;
   route: Router = inject(Router);
   activeRoute:ActivatedRoute=inject(ActivatedRoute);
+
   errorMessage:string='';
   user_role:string|null=null;
 
@@ -34,8 +35,8 @@ export class LoginComponent {
         this.authService.saveToken(res.body.token?.toString());
         const role=res?.body?.roles[0]?.length >0 ? res.body.roles.replace(/[\[\]]/g,''):null;
         this.user_role=role?.trim();
-        this.redirectUser();
-        localStorage.setItem('Role',this.user_role);
+        this.authService.redirectUser(role);
+        this.authService.saveRole(role);
       },
       error: (err) => {
         console.log("Error Code",err)
@@ -60,19 +61,6 @@ export class LoginComponent {
   logout(){
     this.authService.logout();
   }
-  redirectUser(){
-    if(this.user_role){
-       switch(this.user_role){
-        case 'ADMIN': this.route.navigateByUrl('/admin-dashboard'); break;
-        case 'LIBRARIAN': this.route.navigateByUrl('/librarian-dashboard'); break;
-        case 'USER': this.route.navigateByUrl('/users-home'); break;
-        case 'GUEST': this.route.navigateByUrl('/home'); break;
-        default: this.route.navigateByUrl('/login'); break;
-       }
-    }
-else{
-        this.route.navigateByUrl('/login');
-}
-  }
+ 
  
 }

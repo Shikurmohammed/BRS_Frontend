@@ -1,0 +1,16 @@
+<h4 mat-dialog-title> Book Details</h4>
+<div mat-dialog-content>
+   <div class="details-container">
+    <p><strong>Author: {{ data.author }}</strong></p>
+    <p><strong>Type: {{ data.type }}</strong></p>
+    <p><strong>Title: {{data.title}}</strong></p>
+    <p><strong>Total copies: {{data.numberOfCopies}}</strong></p>
+    <p><strong>Edition: {{data.edition}}</strong></p>
+    <p><strong>Status: {{data.status}}</strong></p>
+    <p><strong>Title:{{data.title}}</strong></p>
+   </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button class="btn btn-success" >Ok</button>
+    <button mat-button mat-dialog-close class="btn btn-danger">Close</button>
+</div>

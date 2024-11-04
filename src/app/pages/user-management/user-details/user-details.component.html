@@ -1,0 +1,17 @@
+<h4 mat-dialog-title> User Details</h4>
+<div mat-dialog-content>
+   <div class="details-container">
+    <p><strong>FirstName: {{ data.firstName }}</strong></p>
+    <p><strong>LastName: {{ data.lastName }}</strong></p>
+    <p><strong>Username: {{data.username}}</strong></p>
+    <p><strong>Email: {{data.email}}</strong></p>
+    <p><strong>Phone Number: {{data.phone}}</strong></p>
+    <p><strong>Address: {{data.address}}</strong></p>
+    <p><strong>KebeleID:{{data.KebeleId}}</strong></p>
+   </div>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button class="btn btn-success" >Ok</button>
+    <button mat-button mat-dialog-close class="btn btn-danger">Close</button>
+</div>

@@ -3,10 +3,11 @@ footer {
     padding:15px 0;
     background-color:#27445C;
     bottom: 0;
-    position: absolute;
+    position: fixed;
     height: 50px;
     width: 100vw;
     text-align: center;
     align-items: center;
+    color:white;
 }
 /*End Footer style*/

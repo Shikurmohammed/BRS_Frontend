@@ -1,6 +1,6 @@
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { catchError, Subject, throwError } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Book } from '../models/Book';
 import { LogService } from './log.service';
 @Injectable({
@@ -12,22 +12,12 @@ export class BookService {
   //headers:HttpHeaders= new HttpHeaders().set('Authorization',`Bearer ${localStorage.getItem('token')}`)
   errorSubject= new Subject<HttpErrorResponse>();
   logService= inject(LogService)
+  headers:HttpHeaders=new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`)
 
 
   //Method to fetch all book data
   fetchBooks() {
-    let httpQueryParams=new HttpParams();
-    httpQueryParams= httpQueryParams.set('page',2)
-    httpQueryParams= httpQueryParams.set('items',10)
-    return this.http.get<Book[]>(`${this.apiUrl}/getBooks`,{params:httpQueryParams,observe:'response'})
-    .pipe(
-      catchError(
-        (err)=>{
-          console.log(err)
-       
-          return throwError(()=>err);
-        })
-    );
+    return this.http.get<Book[]>(`${this.apiUrl}/getBooks`)
   }
   
 

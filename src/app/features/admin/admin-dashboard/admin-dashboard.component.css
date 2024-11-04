@@ -1,0 +1,39 @@
+
+mat-sidenav-container{
+    overflow: hidden;
+
+min-height: calc(100vh - 64px);
+
+
+}
+mat-sidenav,mat-sidenav-content{
+padding: 16px;
+
+}
+mat-sidenav{
+    background-color: #97a3ad;
+    width: 200px;
+    height: 100%;
+    border-radius: 0;
+    
+}
+mat-sidenav-content{
+    margin-top: 10px;
+}
+mat-nav-list{
+    color: white;
+    padding: 10px; 
+    justify-content: center;
+    margin: 10px;
+    transform: scale(1.1) ;
+    transition:ease-in-out;
+   
+}
+mat-toolbar{
+    z-index: 5;
+    background-color: #27445C;
+}
+mat-toolbar button{
+    color: white;
+}
+.content{padding: 16px;}

@@ -1,21 +1,19 @@
-<mat-toolbar> <div class="nav">
-    <div class="profile">
-      <a (click)="toggleDayNight()"><i [class]="dayLight?'fas fa-sun':'fas fa-moon'"></i></a>
-    </div>
-    <div class="profile">
-      <a ><i class="fas fa-bell"></i></a>
-       </div>
-    <div> <a><img src="" alt="pic"></a></div>
-   </div></mat-toolbar>
-<mat-sidenav-container>
-    <mat-sidenav mode="side" opened="opened" #sidenav>
-       <mat-nav-list>
-        <a mat-list-item [activated]=""> {{'Book'}}
-        </a >
-       </mat-nav-list>
+<section>
+  <!-- <app-header></app-header> -->
+   <mat-toolbar class="mat-elevation-z3">
+    <button class="btn"(click)="toggleSidenav()"><i class="fas fa-bars"></i></button>
+  </mat-toolbar>
+<mat-sidenav-container >
+    <mat-sidenav mode="side" opened="opened" #sidenav [style.width]="sideNavSize()">
+      <!-- #sidenav class="sidenav-nav"  -->
+      <app-sidenav [collapsed]="isSidenavClosed()" [menus]="menuItems()"></app-sidenav>
     </mat-sidenav>
-    <mat-sidenav-content>
-        <button class="btn"(click)="sidenav.toggle()"><i class="fas fa-bars"></i></button>
-        <app-book-list></app-book-list>
+    <mat-sidenav-content class="content"  >
+     
+        <router-outlet />
     </mat-sidenav-content>
 </mat-sidenav-container>
+<app-footer></app-footer>
+
+</section>
+

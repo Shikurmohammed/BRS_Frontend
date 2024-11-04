@@ -1,0 +1,31 @@
+<span class="btn btn-danger" *ngIf="errorMessage">{{errorMessage}}</span>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Book ID</th>
+        <th scope="col">Request Date</th>
+        <th scope="col">Due Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of requestList; let i = index" >
+        <th scope="row">{{ request.id  }}</th>
+        <td>{{ request.book_id }}</td>
+        <td>{{ request.created_at }}</td>
+        <td>{{ request.due_date }}</td>
+        <td>{{ request.status }}</td>
+        <td >
+          <a  class="link" (click)="approve(request.id??0)" title="Approve">
+            <i class="fas fa-paper-plane text-success"></i></a>
+           <a class="link" (click)="reject(request.id??0)" title="Reject">
+            <i class="fas fa-cancel text-danger"></i></a>
+          </td>
+      </tr>
+      <br>
+      <p *ngIf="requestList==null || requestList.length==0" ><span class="text-danger text-center">You don't have any rental history,Yet!</span></p>
+    </tbody>
+  </table>
+  

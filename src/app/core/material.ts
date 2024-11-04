@@ -18,7 +18,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
-
 export const Material = [
   MatToolbarModule,
   MatSidenavModule,
@@ -37,6 +36,7 @@ export const Material = [
   MatInputModule,
   MatCardModule,
   MatCheckboxModule,
+  // MatDividerModule,
   MatDialogModule,
   MatTableModule,
   MatPaginatorModule,

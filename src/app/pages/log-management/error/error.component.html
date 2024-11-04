@@ -1,0 +1,38 @@
+
+
+<section>
+    <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Error Message</th>
+        <th scope="col">File</th>
+        <th scope="col">Class </th>
+        <th scope="col">Function</th>
+        <th scope="col">Line</th>
+        <th scope="col">Code</th>
+         <th scope="col">Level</th>
+        <th scope="col" >Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let err of errorList; let i=index" >
+        <td scope="row">{{ i}}</td>
+        <td >{{err.errorMessage}}</td>
+        <td >{{err.fileName}}</td>
+        <td >{{err.className}}</td>
+       <td >{{err.functionName}}</td>
+       <td >{{err.lineNumber}}</td>
+       <td >{{err.statusCode}}</td>
+       <td >{{err.severityLevel}}</td>
+       <td >{{err.occurredAt}}</td>
+      </tr>
+  
+    </tbody>
+  </table>
+  </section>
+  
+  
+  
+  
+  

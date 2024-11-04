@@ -1,19 +1,18 @@
-<header>
-    <img src="assets/bookPic1.gif" alt="Logo" class="logo"> 
-   <nav>
-       <div class="input-container">
-           <input type="search" class="search-input" value="" name="s" placeholder="Search entire website..." />
-       <button type="submit" class="search-submit" name="submit"><i class="fa fa-search">search</i></button>
-     </div>
-       <a  [routerLink]="'/login'">Login</a>
-       <a [routerLink]="'/signup'">Create Account</a>
-       <div class="dropDown">
-        <a class="dropBtn">More</a>
-        <div class="dropDown-content">
-            <a href="">Rent</a>
-            <a href="">Return</a>
-            <a href="">Buy</a>
-        </div>
-       </div>
-   </nav>
-</header>
+<mat-toolbar class="mat-elevation-z3" [style]="'background:#27445C'">
+    <nav>
+        <app-search></app-search>
+         <a 
+         [routerLink]="authService.isAuthenticated()?'/logout':'/login'">
+         <i [class]="authService.isAuthenticated()?'fa fa-sign-in':'fal fa-sign-out'" ></i>
+         {{authService.isAuthenticated()?'Logout':'Login'}}</a>
+         <a [routerLink]="'/signup'">{{authService.isAuthenticated()?'':'Create Account'}}</a>
+         <div class="dropDown">
+          <a class="dropBtn">More</a>
+          <div class="dropDown-content">
+              <a href="">Rent</a>
+              <a href="">Return</a>
+              <a href="">Buy</a>
+          </div>
+         </div>
+     </nav>
+  </mat-toolbar>

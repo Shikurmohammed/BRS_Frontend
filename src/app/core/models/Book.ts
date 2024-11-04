@@ -1,15 +1,16 @@
 export class Book {
   constructor(
     public id?: number,
-    public iSBN?: string,
+    public isbn?: string,
     public author?: string ,
     public title?: string ,
     public genre?: string ,
     public type?: string ,
-    public numberOfCopies?: number ,
+    public total_copies?: number ,
+    public available_copies?: number ,
     public edition?: string ,
-    public registrationDate?:string,
-    public publicationDate?: string,
+    public created_at?:string,
+    public publication_date?: Date,
     public status?:string,
     public image?:string,
     public pdfName?:string

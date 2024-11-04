@@ -1,0 +1,12 @@
+.bookcontainer{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin: 45px auto;
+  gap: 10;
+}
+.bookCard{
+  width: 400px;
+  margin: 5px;
+  padding: 5px;
+  justify-content: center;
+}

@@ -1,8 +1,17 @@
-<app-left-sidebar
-[isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
-(changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)"
-/>
 
-<app-main
-[isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
-[screenWidth]="screenWidth()"/>
+<section>
+    <!-- <app-header></app-header> -->
+     <mat-toolbar class="mat-elevation-z3">
+      <button class="btn"(click)="toggleSidenav()"><i class="fas fa-bars"></i></button>
+    </mat-toolbar>
+  <mat-sidenav-container >
+      <mat-sidenav mode="side" opened="opened" #sidenav [style.width]="sideNavSize()">
+        <!-- #sidenav class="sidenav-nav"  -->
+        <app-sidenav [collapsed]="isSidenavClosed()" [menus]="menuItems()"></app-sidenav>
+      </mat-sidenav>
+      <mat-sidenav-content class="content"  >
+       
+          <router-outlet />
+      </mat-sidenav-content>
+  </mat-sidenav-container>
+  <app-footer></app-footer>

@@ -1,0 +1,38 @@
+
+.input-container {
+	display: flex;
+  float: left;
+}
+
+::placeholder {
+  color: #757575;
+  opacity: 1;
+}
+
+.search-input {
+  background: #EEEEEE;
+  color: #212121;
+	vertical-align: middle;
+  font-size: 16px;
+  line-height: 2;
+  padding: 5px;
+  border: 0;
+  outline: none;
+  box-shadow: inset 0 -1px 1px -1px #CCCCCC, inset 0 1px 1px -1px #CCCCCC, inset 1px 0 1px -1px #CCCCCC;
+}
+
+.search-submit {
+	vertical-align: middle;
+  padding: 0 7px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.search-submit:hover {
+  background: #AB47BC;
+}
+
+.search-submit i {
+  font-size: 24px;
+}

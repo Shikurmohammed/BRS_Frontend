@@ -1,0 +1,29 @@
+
+.details-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.details-container p{
+    margin: 8px 0;
+}
+.details-container p >strong{
+   margin: 5px ;
+   padding: 5px ;
+}
+button{
+    width:30%;
+
+    margin: 10px 2px;
+    padding: 8px 0;
+    border: none;
+    outline: none;
+    color:white
+}
+.link{
+    padding: 5px;
+}
+.link:hover{
+ cursor: pointer;
+ background-color: aquamarine;
+}

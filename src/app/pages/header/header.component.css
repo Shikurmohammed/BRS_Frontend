@@ -1,36 +1,41 @@
-/*Header styles*/
+/*mat-toolbar styles*/
 
-header{
-    padding: 15px 5px;
-    margin-bottom: 10px;
-    background-color: #27445C;
-    max-height: 10vh;
-    text-align: center;
-    overflow: hidden;
-  
+mat-toolbar{
+   z-index: 5;
+   background-color: #27445C;
+   color: white;
+   display: flex;
+   justify-content: flex-end;
+   position: fixed;
+    /* box-shadow:10px 10px 8px #81878b;
+   overflow: hidden;
+   top:0;
+   width:100vw;
+   margin-left: -1.2rem;
+   z-index: 1000; */
 }
-header nav{
+mat-toolbar nav{
    float: right;
 }
 
-header nav a{
+mat-toolbar nav a{
    padding: 10px;
    text-decoration: none;
    font-size: 12px;
    color: white;
 }
-header .logo{
+mat-toolbar .logo{
    float: left;
   padding: 0;
   width: 5vw;
    height: 10vh;
    margin: 0;
 }
-header nav a:hover {
+mat-toolbar nav a:hover {
    color: #AB47BC;
    
  }
-/*End header style*/
+/*End mat-toolbar style*/
 /*Start DropDown style*/
 
 .dropDown{
@@ -57,6 +62,9 @@ header nav a:hover {
    display: block;
 }
 .dropDown-content a:hover{
- /* background-color: #4783bc; */
 }
 /*End DropDown style*/
+
+mat-toolbar button{
+   color: white;
+}
